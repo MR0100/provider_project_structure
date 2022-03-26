@@ -1,4 +1,4 @@
-part of provider_application_exceptions;
+part of provider_app_exceptions;
 
 /// Class to handle Exceptions Based on Fetchind Data.
 class FetchingDataException implements Exception {
@@ -12,7 +12,7 @@ class FetchingDataException implements Exception {
 
   /// show snackbar.
   void showToast(BuildContext context) {
-    showMySnackBar(
+    showFancySnackbar(
       context,
       title: _title,
       message: _message,

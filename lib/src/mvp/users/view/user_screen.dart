@@ -34,7 +34,7 @@ class _UserScreenState extends State<UserScreen> {
               ThemeBase theme = VariableUtilities.theme is LightTheme
                   ? DarkTheme()
                   : LightTheme();
-              ThemeManager.switchTheme(newTheme: theme);
+              ThemeManager.switchTheme(context, newTheme: theme);
               setState(() {});
             },
             icon: Icon(
@@ -60,11 +60,11 @@ class _UserScreenState extends State<UserScreen> {
         } else {
           UserListResponseModel data = _userProvider.userDetailsData.left;
           return ListView.builder(
-            itemCount: data.data.length,
+            itemCount: data.data?.length ?? 0,
             itemBuilder: (context, index) {
               return ListTile(
                 title: Text(
-                  data.data[index].firstName,
+                  data.data![index].firstName,
                   style: FontUtilities.h14(
                     fontColor: VariableUtilities.theme.testTheme,
                   ),

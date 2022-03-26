@@ -31,7 +31,7 @@ Color getSnackColor(SnackType type) {
 }
 
 /// custom snackbar.
-void showMySnackBar(
+void showFancySnackbar(
   BuildContext context, {
   required String title,
   required String message,

@@ -1,6 +1,6 @@
 {
-    "name": "provider_app",
-    "short_name": "provider_app",
+    "name": "provider_project_structure",
+    "short_name": "provider_project_structure",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

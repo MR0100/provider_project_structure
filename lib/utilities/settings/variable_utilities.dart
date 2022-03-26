@@ -15,5 +15,5 @@ class VariableUtilities {
 
   /// this is the instance of shared pr eferences.
   /// this will be used to access preference instance in application.
-  static late SharedPreferences prefs;
+  static late SharedPreferences preferences;
 }

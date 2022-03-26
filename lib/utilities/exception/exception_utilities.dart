@@ -1,4 +1,4 @@
-library provider_application_exceptions;
+library provider_app_exceptions;
 
 import 'package:flutter/material.dart';
 import 'package:provider_app/src/widget/widget.dart';

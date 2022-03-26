@@ -1,4 +1,4 @@
-part of provider_application_exceptions;
+part of provider_app_exceptions;
 
 /// Class to handle Server Based Exceptions.
 class ServerException implements Exception {
@@ -14,7 +14,7 @@ class ServerException implements Exception {
 
   /// show snackbar.
   void showToast(BuildContext context) {
-    showMySnackBar(
+    showFancySnackbar(
       context,
       title: _title,
       message: _message,

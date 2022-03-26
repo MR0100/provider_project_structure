@@ -1,4 +1,4 @@
-part of provider_application_exceptions;
+part of provider_app_exceptions;
 
 /// Class to handle BadRequest Based Exceptions.
 class BadRequestException implements Exception {
@@ -13,7 +13,7 @@ class BadRequestException implements Exception {
 
   /// show snackbar.
   void showToast(BuildContext context) {
-    showMySnackBar(
+    showFancySnackbar(
       context,
       title: _title,
       message: _message,

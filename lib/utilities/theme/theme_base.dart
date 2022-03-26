@@ -1,4 +1,4 @@
-part of provider_application_theme;
+part of provider_app_theme;
 
 /// all the colores used in the application are managed using this theme_base.
 /// if you want to use the additional colors then you can add in this class.

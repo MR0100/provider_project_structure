@@ -1,4 +1,4 @@
-part of provider_application_theme;
+part of provider_app_theme;
 
 /// This is the class contains all the colors of the light theme.
 /// when user select the light mode in the application then we use light colors.

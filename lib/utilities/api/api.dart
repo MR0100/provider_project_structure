@@ -1,4 +1,4 @@
-library provider_application_apis;
+library provider_app_apis;
 
 import 'dart:convert';
 

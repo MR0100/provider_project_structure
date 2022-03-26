@@ -1,4 +1,4 @@
-library provider_application_theme;
+library provider_app_theme;
 
 import 'dart:ui';
 
@@ -12,12 +12,12 @@ part 'theme_data/light_theme.dart';
 
 /// This is the manager class of the application theme.
 /// we can manage application using this class and methods of this class.
-/// all the funcations regarding theme will be in this class.
+/// all the functions regarding theme will be in this class.
 class ThemeManager {
   /// this function is used to manage theme and initialize theme data.
-  static void initializeTheme(BuildContext context) {
+  static void initializeTheme(BuildContext context, {ThemeBase? theme}) {
     try {
-      String applicationThemeMode = VariableUtilities.prefs
+      String applicationThemeMode = VariableUtilities.preferences
               .getString(LocalCacheKey.applicationThemeMode) ??
           'auto';
       switch (applicationThemeMode) {
@@ -52,7 +52,14 @@ class ThemeManager {
   }
 
   /// this is the function which is used to switch between the theme.
-  static void switchTheme({required ThemeBase newTheme}) {
-    VariableUtilities.theme = newTheme;
+  static void switchTheme(BuildContext context,
+      {required ThemeBase? newTheme}) {
+    VariableUtilities.preferences.setString(
+        LocalCacheKey.applicationThemeMode,
+        (newTheme == null)
+            ? 'auto'
+            : (newTheme is LightTheme ? 'light' : 'dark'));
+    // setting new theme.
+    initializeTheme(context, theme: newTheme);
   }
 }

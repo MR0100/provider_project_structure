@@ -1,4 +1,4 @@
-part of provider_application_apis;
+part of provider_app_apis;
 
 /// enum of apiTypes available to use.
 enum APIType {
@@ -41,11 +41,11 @@ class API {
 
         /// token has same importance as secret key.
         /// we can get token after login and registration apis.
-        /// and all other apis exept login and registration will require the
+        /// and all other apis except login and registration will require the
         /// token also with the secret key.
         if (url != APIUtilities.loginUrl &&
             url != APIUtilities.registrationUrl) {
-          String token = VariableUtilities.prefs.getString('token') ?? '';
+          String token = VariableUtilities.preferences.getString('token') ?? '';
           if (token != '') {
             appHeader.addAll(
               {
@@ -104,15 +104,15 @@ class API {
             // if (response["status"] is int
             //     ? response["status"] == 200
             //     : response["status"]) {
-            //   /// if the api is returning the pdf then direct send the file data...
+            /// if the api is returning the pdf then direct send the file data..
             //   if (apiResponse.headers["content-type"] == "application/pdf") {
             //     return Left(apiResponse.bodyBytes);
             //   }
 
-            //   /// when all the things are fine and api call is success then return the response...
+            /// when all the things are fine and api call is success then return the response...
             //   return Left(response);
             // } else {
-            //   /// whene there is any error from the server, then return null and show the message.
+            /// when there is any error from the server, then return null and show the message.
             //   return Right(
             //    GeneralAPIException(message: response["message"].toString()));
             // }
@@ -149,7 +149,7 @@ class API {
             /// when get bellow error message from api.
             if (response['message'].toString() ==
                 "Request isn't authorized without token") {
-              await VariableUtilities.prefs.setBool(
+              await VariableUtilities.preferences.setBool(
                   LocalCacheKey.applicationLoginState,
                   false); // setting login session
               await Navigator.of(context).pushNamed(RouteUtilities.root);
@@ -158,7 +158,7 @@ class API {
             return Right(AuthorizationException());
           default:
 
-            /// when there is some other errors like searver, page-not-found,
+            /// when there is some other errors like server, page-not-found,
             /// bad connection then it will return null.
             GeneralAPIException().showToast(context);
             return Right(GeneralAPIException());

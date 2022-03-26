@@ -25,7 +25,7 @@ class _SplashScreenState extends State<SplashScreen> {
   void startTimer() {
     timer = Timer.periodic(const Duration(seconds: 3), (Timer timer) {
       timer.cancel();
-      bool isLogin = VariableUtilities.prefs.getBool('') ?? false;
+      bool isLogin = VariableUtilities.preferences.getBool('') ?? false;
       if (isLogin) {
         /// if user is logged in then redirect to the homescreen.
         // String homeScreen = RouteUtilities.root;
@@ -50,7 +50,7 @@ class _SplashScreenState extends State<SplashScreen> {
     ThemeManager.initializeTheme(context);
 
     /// Settings Instance of SharedPreferences.
-    VariableUtilities.prefs = await SharedPreferences.getInstance();
+    VariableUtilities.preferences = await SharedPreferences.getInstance();
 
     /// initialize the theme.
     ThemeManager.initializeTheme(context);
@@ -63,7 +63,7 @@ class _SplashScreenState extends State<SplashScreen> {
   /// then showing onboarding screen
   /// otherwise skip onboarding screen.
   bool _checkFirstTimeUser() {
-    return VariableUtilities.prefs
+    return VariableUtilities.preferences
             .getBool(LocalCacheKey.applicationFirstTimeState) ??
         true;
   }

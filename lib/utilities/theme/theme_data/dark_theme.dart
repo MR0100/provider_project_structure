@@ -1,4 +1,4 @@
-part of provider_application_theme;
+part of provider_app_theme;
 
 /// This is the class contains all the colors of the dark theme.
 /// when user select the dark mode in the application then we use dark colors.

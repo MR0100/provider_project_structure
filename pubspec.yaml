@@ -12,22 +12,28 @@ dependencies:
   either_dart: ^0.1.4
   flutter:
     sdk: flutter
+  freezed_annotation: ^1.1.0
   http: ^0.13.4
+  json_annotation: ^4.4.0
   provider: ^6.0.2
   shared_preferences: ^2.0.12
 
 dev_dependencies:
-  # package for unit testing.
-  flutter_test:
-    sdk: flutter
-  # package for integration testing drivers.
   flutter_driver:
-    sdk: flutter
-  # Package used for the integration testing.
-  integration_test:
     sdk: flutter
   # package for lint rules.
   flutter_lints: ^1.0.0
+  flutter_test:
+    sdk: flutter
+  # freezed model generator.
+  freezed: ^1.1.1
+  # Package used for the integration testing.
+  integration_test:
+    sdk: flutter
+  # Package for json serialization.
+  json_serializable: ^6.1.5
+  build_runner: ^2.1.8
+
 
 flutter:
   uses-material-design: true

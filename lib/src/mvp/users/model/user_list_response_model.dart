@@ -1,107 +1,48 @@
 // ignore_for_file: public_member_api_docs
 
-import 'dart:convert';
+import 'package:freezed_annotation/freezed_annotation.dart';
 
-class UserListResponseModel {
-  UserListResponseModel({
-    required this.page,
-    required this.perPage,
-    required this.total,
-    required this.totalPages,
-    required this.data,
-    required this.support,
-  });
+part 'user_list_response_model.freezed.dart';
+part 'user_list_response_model.g.dart';
 
-  factory UserListResponseModel.fromJson(String str) =>
-      UserListResponseModel.fromMap(json.decode(str));
+@immutable
+@freezed
+class UserListResponseModel with _$UserListResponseModel {
+  const factory UserListResponseModel({
+    @JsonKey(name: 'page') required int page,
+    @JsonKey(name: 'per_page') required int perPage,
+    @JsonKey(name: 'total') required int total,
+    @JsonKey(name: 'total_pages') required int totalPages,
+    @JsonKey(name: 'data') required List<Datum>? data,
+    @JsonKey(name: 'suport') required Support? support,
+  }) = _UserListResponseModel;
 
-  factory UserListResponseModel.fromMap(Map<String, dynamic> json) =>
-      UserListResponseModel(
-        page: json['page'],
-        perPage: json['per_page'],
-        total: json['total'],
-        totalPages: json['total_pages'],
-        data: List<Datum>.from(json['data'].map((x) => Datum.fromMap(x))),
-        support: Support.fromMap(json['support']),
-      );
-
-  final int page;
-  final int perPage;
-  final int total;
-  final int totalPages;
-  final List<Datum> data;
-  final Support support;
-
-  String toJson() => json.encode(toMap());
-
-  Map<String, dynamic> toMap() => {
-        'page': page,
-        'per_page': perPage,
-        'total': total,
-        'total_pages': totalPages,
-        'data': data == null
-            ? null
-            : List<dynamic>.from(data.map((x) => x.toMap())),
-        'support': support == null ? null : support.toMap(),
-      };
+  factory UserListResponseModel.fromJson(Map<String, dynamic> json) =>
+      _$UserListResponseModelFromJson(json);
 }
 
-class Datum {
-  Datum({
-    required this.id,
-    required this.email,
-    required this.firstName,
-    required this.lastName,
-    required this.avatar,
-  });
+@immutable
+@freezed
+class Datum with _$Datum {
+  const factory Datum({
+    @JsonKey(name: 'id') required int id,
+    @JsonKey(name: 'email') required String email,
+    @JsonKey(name: 'first_name') required String firstName,
+    @JsonKey(name: 'last_name') required String lastName,
+    @JsonKey(name: 'avatar') required String avatar,
+  }) = _Datum;
 
-  final int id;
-  final String email;
-  final String firstName;
-  final String lastName;
-  final String avatar;
-
-  factory Datum.fromJson(String str) => Datum.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory Datum.fromMap(Map<String, dynamic> json) => Datum(
-        id: json['id'],
-        email: json['email'],
-        firstName: json['first_name'],
-        lastName: json['last_name'],
-        avatar: json['avatar'],
-      );
-
-  Map<String, dynamic> toMap() => {
-        'id': id,
-        'email': email,
-        'first_name': firstName,
-        'last_name': lastName,
-        'avatar': avatar,
-      };
+  factory Datum.fromJson(Map<String, dynamic> json) => _$DatumFromJson(json);
 }
 
-class Support {
-  Support({
-    required this.url,
-    required this.text,
-  });
+@immutable
+@freezed
+class Support with _$Support {
+  const factory Support({
+    @JsonKey(name: 'url') required String url,
+    @JsonKey(name: 'text') required String text,
+  }) = _Support;
 
-  final String url;
-  final String text;
-
-  factory Support.fromJson(String str) => Support.fromMap(json.decode(str));
-
-  String toJson() => json.encode(toMap());
-
-  factory Support.fromMap(Map<String, dynamic> json) => Support(
-        url: json['url'],
-        text: json['text'],
-      );
-
-  Map<String, dynamic> toMap() => {
-        'url': url,
-        'text': text,
-      };
+  factory Support.fromJson(Map<String, dynamic> json) =>
+      _$SupportFromJson(json);
 }

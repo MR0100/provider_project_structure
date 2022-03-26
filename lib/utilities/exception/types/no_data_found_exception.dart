@@ -1,4 +1,4 @@
-part of provider_application_exceptions;
+part of provider_app_exceptions;
 
 /// Class to handle Exception when Data not found.
 class NoDataFoundException implements Exception {
@@ -12,7 +12,7 @@ class NoDataFoundException implements Exception {
 
   /// show snackbar.
   void showToast(BuildContext context) {
-    showMySnackBar(
+    showFancySnackbar(
       context,
       title: _title,
       message: _message,

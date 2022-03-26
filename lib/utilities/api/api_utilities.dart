@@ -1,4 +1,4 @@
-part of provider_application_apis;
+part of provider_app_apis;
 
 /// This is the class to manage all endpoints used in the application for APIs.
 class APIUtilities {

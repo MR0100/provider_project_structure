@@ -11,9 +11,11 @@ Future<Either<UserListResponseModel, Exception>> getUsersAPI(
       url: APIUtilities.userListUrl, type: APIType.tGet);
 
   if (data.isLeft) {
+    print(data.left);
     try {
-      return Left(UserListResponseModel.fromMap(data.left));
+      return Left(UserListResponseModel.fromJson(data.left));
     } catch (e) {
+      print(e);
       return Right(DataToModelConversionException());
     }
   } else {
