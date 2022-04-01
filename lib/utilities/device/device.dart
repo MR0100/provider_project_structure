@@ -20,7 +20,11 @@ extension DeviceExtension on num {
                   MediaQuery.of(context).size.aspectRatio)) /
           2.08) /
       100;
+}
 
+/// this is the class to get some information of the device.
+class Device {
   /// device aspect ratio.
-  double ratio(BuildContext context) => MediaQuery.of(context).size.aspectRatio;
+  static double ratio(BuildContext context) =>
+      MediaQuery.of(context).size.aspectRatio;
 }
